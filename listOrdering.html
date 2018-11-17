@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>Vue chapter 3</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+<div class="container">
+    <ul class="list-group">
+        <li v-for="car in carList | orderBy 'rating' order" class="list-group-item">
+            {{car.make}} --> {{car.model}} with the rating of {{car.rating}} 
+        </li>
+    </ul>
+    <button @click="order = order * -1">Reverse Order</button>
+</div>
+
+    <pre>{{$data | json}}</pre>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            order: -1,
+            carList: [
+                {
+                    make: "Acura",
+                    model: 'TL',
+                    rating: 100
+                }, {
+                    make: "Lexus",
+                    model: "RX",
+                    rating: 60
+                },
+                {
+                    make: "Acura",
+                    model: 'TSX',
+                    rating: 99
+                },
+                {
+                    make: "Lexus",
+                    model: "GS",
+                    rating: 80
+                },
+                {
+                    make: "Acura",
+                    model: 'MDX',
+                    rating: 98
+                },
+                {
+                    make: "Lexus",
+                    model: "LS",
+                    rating: 98
+                }
+            ]
+
+
+
+        }
+
+
+    })
+</script>
+
+
+</html>

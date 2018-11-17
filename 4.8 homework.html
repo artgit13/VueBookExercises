@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>Vue chapter 3 Homework</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Largest cities in Canada</h1>
+        <ul class="list-group">
+            <li v-for="city in cities | orderBy 'rank'" class="list-group-item" >
+                {{city.city}} is ranked {{city.rank}} largest in Canada
+            </li>
+        </ul>
+        <h1> Top two largest cities in Canada</h1>
+        <ul class="list-group">
+            <li v-for="city in cities | biggestFilter" class="list-group-item">
+                {{city.city}} is ranked {{city.rank}} largest in Canada
+            </li>
+        </ul>
+    </div>
+
+
+
+    <pre>{{$data | json}}</pre>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+
+<script type="text/javascript">
+    Vue.filter('biggestFilter', function (cities) {
+        return cities.filter(function (item) {
+            return item.rank < 3;
+        })
+    })
+</script>
+
+<script>
+new Vue({
+el: 'body',
+data: {
+    order: -1,
+    cities: [
+        {
+           city: "Edmonton",
+           rank: 5 
+        },
+        {
+            city: "Toronto",
+            rank: 1 
+        },
+        {
+            city: "Montreal",
+            rank: 2 
+        },
+        {
+            city: "Vancouver",
+            rank: 3 
+        },
+        {
+            city: "Calgary",
+            rank: 4 
+        }
+    ]
+}
+})
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Vue chapter 3</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <div class="container">
+        <h1>Lets hear some carList</h1>
+        <div>
+            <h3>Acura</h3>
+            <ul class="list-group">
+                <li v-for="car in carList | filterBy 'Acura' in 'make'" class="list-group-item">
+                    {{$index+1}}. {{car.make}} {{car.model}}
+                </li>
+            </ul>
+            <h3>Lexus</h3>
+            <ul class="list-group">
+                <li v-for="car in carList | filterBy 'lexus' in 'make'" class="list-group-item">
+                    {{$index+1}}. {{car.make}} {{car.model}}
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <pre>{{$data | json}}</pre>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            carList: [
+                {
+                    make: "Acura",
+                    model: 'TL'
+                }, {
+                    make: "Lexus",
+                    model: "RX"
+                },
+                {
+                    make: "Acura",
+                    model: 'TSX'
+                },
+                {
+                    make: "Lexus",
+                    model: "GS"
+                }
+            ]
+
+
+
+        }
+
+
+    })
+</script>
+
+
+</html>

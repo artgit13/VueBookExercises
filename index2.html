@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Vue chapter 3</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+    <div v-if="gender == 'male' || gender == 'female'">
+        <h1>Hello,
+
+            <span v-show="gender == 'male'">Mister {{name}}</span>
+            <span v-if="gender == 'female'">Miss {{name}}</span>
+        </h1>
+    </div>
+    <h1 v-else>Hello, enter your gender and name</h1>
+    <label for="gender" >Enter your gender</label>
+    <input v-model="gender" class="form-control"id="gender">
+    <label for="name" id="name">Enter your name</label>
+    <input v-model="name" class="form-control"id="name">
+
+
+
+  </div>
+
+<pre>{{$data | json}}</pre>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+
+<script>
+    new Vue({
+        el: 'body',
+        data:{
+         name: '',
+         gender: ''
+
+        }
+    })
+</script>
+
+
+</html>

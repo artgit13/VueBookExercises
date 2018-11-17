@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <title>Vue chapter 3 Homework</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<style>
+.btn{
+    width: 300px;
+}
+</style>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <button type="button" class="btn btn-info" @click="upvote">
+                    UPVOTE! {{upvotes}}
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <pre>{{$data | json}}</pre>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+
+<script>
+    new Vue({
+        el: 'body',
+        data: {
+            upvotes: 0
+        },
+        methods: {
+            upvote: function(){
+                this.upvotes++;
+            }
+        }
+    })
+</script>
+
+
+
+
+</html>

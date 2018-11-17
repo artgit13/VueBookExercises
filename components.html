@@ -1,0 +1,42 @@
+<html>
+
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <title>Awesome Stories</title>
+</head>
+
+<body>
+    <div class="container">
+        Components 68
+        ">
+        <story v-bind:story="{plot: 'My horse is amazing.', writer: 'Mr. Weebl'}\
+        </story>
+        <story v-bind:story="
+            {plot: 'Narwhals invented Shish Kebab.' , writer: 'M\ r. Weebl' }">
+        </story>
+        <story v-bind:story="{plot: 'The dark side of the Force is stronger.', w\
+        riter: 'Darth Vader'}">
+        </story>
+        <template id="story-template">
+            <h1>{{ story.writer }} said "{{ story.plot }}"</h1>
+        </template>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.js"></script>
+<script type="text/javascript">
+    Vue.component('story', {
+        props: ['story'],
+        template: "#story-template"
+    });
+    new Vue({
+        el: '.container'
+    }) </script>
+
+</html>
+
+<html>
+<style>
+
+</style>
+
